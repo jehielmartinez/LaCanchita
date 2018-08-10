@@ -1,0 +1,15 @@
+.spacer {
+    flex: 1 1 auto;
+  }
+.navbar{
+  background-color: #2abf6d;
+  color: white;
+  height: 45px;
+}
+.footer{
+  position: fixed;
+  bottom: 0;
+}
+.icon{
+  font-display: center;
+}
