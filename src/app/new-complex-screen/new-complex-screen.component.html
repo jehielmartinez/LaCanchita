@@ -1,0 +1,43 @@
+<div class="box center-align">
+    <form [formGroup]="complexForm" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+            <input matInput type="text" placeholder="Nombre del Complejo" formControlName="complexName">
+        </mat-form-field>
+        <mat-form-field>
+            <textarea matInput type="text" placeholder="Descripcion" formControlName="description"></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="text" placeholder="Responsable" formControlName="ownerName">
+        </mat-form-field>
+        <table class="center-align" cellspacing="1">
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <input matInput type="time" placeholder="Hora de Apertura" formControlName="openingHour">
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field>
+                        <input matInput type="time" placeholder="Hora de Cierre" formControlName="closingHour">
+                    </mat-form-field>
+                </td>
+            </tr>
+        </table>
+        <mat-form-field>
+            <input matInput type="tel" placeholder="Telefono" formControlName="telephone">
+        </mat-form-field>
+        <mat-form-field>
+            <textarea matInput type="text" placeholder="Direccion" formControlName="address"></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="text" placeholder="Ciudad" formControlName="city">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="text" placeholder="Pais" formControlName="country">
+        </mat-form-field>
+        <div class="center-align">
+            <button mat-raised-button class="theme-button theme-primary-color">Registrar</button>
+            <button mat-raised-button class="theme-button">Cancelar</button>
+        </div>
+    </form>
+</div>

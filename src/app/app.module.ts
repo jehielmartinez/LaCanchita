@@ -14,11 +14,20 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
+import { NewComplexScreenComponent } from './new-complex-screen/new-complex-screen.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SigninScreenComponent } from './signin-screen/signin-screen.component';
+import { SignupScreenComponent } from './signup-screen/signup-screen.component';
+import { CardsComponent } from './cards/cards.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NewComplexScreenComponent,
+    SigninScreenComponent,
+    SignupScreenComponent,
+    CardsComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +38,9 @@ import { MaterialModule } from './material.module';
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

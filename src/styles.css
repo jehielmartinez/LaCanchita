@@ -1,7 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 body{
-    background-color: #c4fff6;
+    background-color: rgb(255, 246, 244);
     margin : 0;
     font-family: Roboto;
 }
+form{
+    display: flex;
+        flex-direction: column;
+        width: 90%;
+        margin: auto auto 50px auto;
+        
+}
+.theme-primary-color{
+    background-color: #18b960 !important;
+}
+.theme-button{
+    max-width: 200px;
+    margin: auto 10px auto !important;
+}
+.center-align{
+    margin-left: auto;
+    margin-right: auto;
+}
+.spacer {
+    flex: 1 1 auto;
+  }
+.center-screen {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+  }

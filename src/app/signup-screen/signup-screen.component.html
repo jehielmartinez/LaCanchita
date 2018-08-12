@@ -1,0 +1,27 @@
+<div class="center-screen box">
+  <img src="../../assets/LOGO La Canchita.png">
+  <form  [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput class="browser-default" type="text" placeholder="Nombre Completo" formControlName="name">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput class="browser-default" type="number" placeholder="Edad" formControlName="age">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput class="browser-default" type="text" placeholder="Tipo de Usuario" formControlName="type">
+      </mat-form-field>
+    <mat-form-field>
+      <input matInput class="browser-default" type="email" placeholder="Correo Electronico" formControlName="email">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput class="browser-default" placeholder="Contraseña" [type]="hide ? 'password' : 'text'" formControlName="password">
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+    </mat-form-field>
+
+    <div class="center-align">
+      <button mat-raised-button class="theme-button theme-primary-color">Registrar</button>
+      <button mat-raised-button class="theme-button">Cancelar</button>
+    </div>
+  </form>
+</div>

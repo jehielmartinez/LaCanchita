@@ -1,15 +1,18 @@
-.spacer {
-    flex: 1 1 auto;
-  }
 .navbar{
-  background-color: #2abf6d;
+  background-color: #E64A19;
   color: white;
   height: 45px;
+  font-weight: 300;
 }
 .footer{
   position: fixed;
   bottom: 0;
+  z-index: 2;
 }
 .icon{
   font-display: center;
+}
+mat-toolbar{
+  min-height: 40px;
+  max-height: 45px;
 }
