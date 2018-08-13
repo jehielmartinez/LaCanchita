@@ -2,18 +2,19 @@
 <div class="center-screen box">
   <img src="../../assets/LOGO La Canchita.png">
   <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+    
     <mat-form-field>
       <input matInput type="email" class="browser-default form-control" placeholder="Correo Electronico" formControlName="email">
     </mat-form-field>
   
     <mat-form-field>
-      <input matInput placeholder="Contraseña" [type]="hide ? 'password' : 'text'" formControlName="password">
+      <input matInput class="browser-default" placeholder="Contraseña" [type]="hide ? 'password' : 'text'" formControlName="password">
       <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
     </mat-form-field>
   
     <div class="center-align">
-      <button mat-raised-button class="theme-button theme-primary-color">Login</button>
-      <button mat-raised-button class="theme-button">Cancelar</button>
+      <button mat-raised-button type="submit" class="theme-button theme-primary-color">Login</button>
+      <button mat-raised-button type="reset" class="theme-button">Cancelar</button>
   </div>
   </form>
 </div>

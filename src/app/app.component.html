@@ -2,9 +2,15 @@
   <mat-toolbar-row class="navbar">
     <span>La Canchita</span>
     <span class="spacer"></span>
-    <button mat-icon-button>
+    <small *ngIf="loggedIn">{{loggedUser | async}}</small>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
       <mat-icon svgIcon="account-settings" class="icon"></mat-icon>
     </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item *ngIf="!loggedIn" routerLink="/login">Login</button>
+      <button mat-menu-item *ngIf="loggedIn" (click)="logOut()">LogOut</button>
+      <!-- <button mat-menu-item (click)="showUser()">ShowUser</button> -->
+    </mat-menu>
   </mat-toolbar-row>
 
   <mat-toolbar-row class="navbar footer mat-elevation-z2">
@@ -17,13 +23,14 @@
     </button>
     <span class="spacer"></span>
     <button mat-icon-button>
-      <mat-icon svgIcon="clipboard-check" class="icon"></mat-icon>
+      <mat-icon routerLink="/newcomplex" svgIcon="clipboard-check" class="icon"></mat-icon>
     </button>
   </mat-toolbar-row>
 </mat-toolbar>
 <!-- <app-new-complex-screen></app-new-complex-screen> -->
 <!-- <app-signin-screen></app-signin-screen> -->
-<app-signup-screen></app-signup-screen>
+<!-- <app-signup-screen></app-signup-screen> -->
 <!-- <app-cards></app-cards> -->
+<router-outlet></router-outlet>
 
 

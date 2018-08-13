@@ -19,6 +19,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SigninScreenComponent } from './signin-screen/signin-screen.component';
 import { SignupScreenComponent } from './signup-screen/signup-screen.component';
 import { CardsComponent } from './cards/cards.component';
+import { AuthenticationService } from './services/auth/authentication.service';
+import { RouterModule, Routes } from '@angular/router';
+import { DatabaseService } from './services/database/database.service';
+
+const appRoutes: Routes = [
+  { path: '', component: CardsComponent},
+  { path: 'login', component: SigninScreenComponent},
+  { path: 'signup', component: SignupScreenComponent},
+  { path: 'newcomplex', component: NewComplexScreenComponent},
+  { path: 'cards', component: CardsComponent},
+];
+
 
 
 @NgModule({
@@ -40,9 +52,10 @@ import { CardsComponent } from './cards/cards.component';
     HttpClientModule,
     HttpModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [AuthenticationService, DatabaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

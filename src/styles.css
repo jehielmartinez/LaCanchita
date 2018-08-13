@@ -33,3 +33,6 @@ form{
     /* bring your own prefixes */
     transform: translate(-50%, -50%);
   }
+  .logo{
+      src: local('../../assets/LOGO La Canchita.png');
+  }
