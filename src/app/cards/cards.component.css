@@ -4,3 +4,9 @@
 .card-content{
     padding: 10px;
 }
+.new-fab{
+    font-size: 30px;
+    position: fixed;
+    bottom: 55px;
+    right: 10px;
+}

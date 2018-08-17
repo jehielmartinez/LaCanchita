@@ -1,44 +1,85 @@
 <img class="center-screen" src="../../assets/LOGO La Canchita.png">
+<br>
 <div class="box center-align">
     <form [formGroup]="complexForm" (ngSubmit)="onSubmit()">
         <mat-form-field>
             <input matInput class="browser-default" type="text" placeholder="Nombre del Complejo" formControlName="complexName">
+            <mat-icon matSuffix svgIcon="home-account" class="icon"></mat-icon>
         </mat-form-field>
+
+        <mat-form-field>
+            <input matInput class="browser-default" type="number" placeholder="Numero de Cancha" formControlName="fieldNum">
+            <mat-icon matSuffix svgIcon="soccer-field" class="icon"></mat-icon>
+        </mat-form-field>
+
         <mat-form-field>
             <textarea matInput class="browser-default" type="text" placeholder="Descripcion" formControlName="description"></textarea>
+            <mat-icon matSuffix svgIcon="note-text" class="icon"></mat-icon>
         </mat-form-field>
+
         <mat-form-field>
-            <input matInput class="browser-default" type="text" placeholder="Responsable" formControlName="ownerName">
+            <ngx-mat-file-input class="browser-default form-control" formControlName="imageURL" placeholder="Escoja una Imagen"></ngx-mat-file-input>
+            <mat-icon matSuffix svgIcon="image" class="icon"></mat-icon>
         </mat-form-field>
-        <table class="center-align" cellspacing="0">
+        <!-- <mat-form-field>
+            <input matInput class="browser-default" type="text" placeholder="Responsable" formControlName="ownerName">
+        </mat-form-field> -->
+        <!-- <table class="center-align" cellspacing="0">
             <tr>
                 <td>
-                    <mat-form-field>
-                        <input matInput class="browser-default" type="time" placeholder="Hora de Apertura" formControlName="openingHour">
-                    </mat-form-field>
+                    <div class="browser-default inline">
+                        <input placeholder="Hora de Apertura" formControlName="openingHour" [owlDateTime]="dt1">
+                        <mat-icon svgIcon="calendar" class="icon" [owlDateTimeTrigger]="dt1"></mat-icon>
+                        <owl-date-time [pickerType]="'timer'" #dt1></owl-date-time>
+                    </div>
                 </td>
                 <td>
-                    <mat-form-field>
-                        <input matInput class="browser-default" type="time" placeholder="Hora de Cierre" formControlName="closingHour">
-                    </mat-form-field>
+                    <input class="browser-default" placeholder="Hora de Cierre" formControlName="closingHour" [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2">
+                    <mat-icon svgIcon="calendar" class="icon" [owlDateTimeTrigger]="dt2"></mat-icon>
+                    <owl-date-time [pickerType]="'timer'" #dt2></owl-date-time>
                 </td>
             </tr>
-        </table>
+        </table> -->
+
         <mat-form-field>
             <input matInput class="browser-default" type="tel" placeholder="Telefono" formControlName="telephone">
+            <mat-icon matSuffix svgIcon="phone-in-talk" class="icon"></mat-icon>
         </mat-form-field>
+
         <mat-form-field>
             <textarea matInput class="browser-default" type="text" placeholder="Direccion" formControlName="address"></textarea>
+            <mat-icon matSuffix svgIcon="map-marker" class="icon"></mat-icon>
         </mat-form-field>
+
         <mat-form-field>
-            <input matInput class="browser-default" type="text" placeholder="Ciudad" formControlName="city">
+            <mat-select class="browser-default" placeholder="Pais" formControlName="country" [(value)]="selectedCountry">
+                <mat-option *ngFor="let country of countries" [value]="country.name">
+                    {{country.name}}
+                </mat-option>
+            </mat-select>
+            <mat-icon matSuffix svgIcon="flag" class="icon"></mat-icon>
         </mat-form-field>
-        <mat-form-field>
-            <input matInput class="browser-default" type="text" placeholder="Pais" formControlName="country">
-        </mat-form-field>
+
+
+        <ng-container *ngFor="let country of countries">
+            <ng-container *ngIf="country.name == selectedCountry">
+                <mat-form-field>
+                    <mat-select class="browser-default" formControlName="city" placeholder="Ciudad">
+                        <mat-option *ngFor="let city of country.states" [value]="city">
+                            {{city}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-icon matSuffix svgIcon="city" class="icon"></mat-icon>
+                </mat-form-field>
+            </ng-container>
+        </ng-container>
+       
+
+
         <div class="center-align">
-            <button mat-raised-button class="theme-button theme-primary-color">Registrar</button>
-            <button mat-raised-button class="theme-button">Cancelar</button>
+            <br>
+            <button mat-raised-button type="submit" class="theme-button theme-primary-color">Registrar</button>
+            <button mat-raised-button type="reset" class="theme-button" routerLink="/">Cancelar</button>
         </div>
     </form>
 </div>

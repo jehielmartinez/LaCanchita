@@ -28,7 +28,6 @@ export class SigninScreenComponent implements OnInit {
     this.authService.signin(this.user);
     this.signinForm.reset();
     this.router.navigate(['cards']);
-
   }
 
 }

@@ -11,3 +11,6 @@ img {
     max-height: auto;
     opacity: 0.03;
 }
+.toggle{
+    display: inline;
+}

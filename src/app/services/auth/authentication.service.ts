@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore } from 'angularfire2/firestore';
+import { auth } from '../../../../node_modules/firebase';
 
 
 
@@ -27,7 +28,7 @@ export class AuthenticationService {
   }
 
   private uploadUser(user) {
-    this.usersRef.doc(user.createdAt).set({
+    this.usersRef.doc(user.email).set({
       name: user.name,
       age: user.age,
       type: user.type,
@@ -61,19 +62,14 @@ export class AuthenticationService {
   public logOut() {
     this.angularFireAuth.auth.signOut();
   }
-  public getUserData(email) {
-    // const currentEmail = this.getCurrentUser().currentUser.email;
-    let currentUser = null;
-    this.usersRef.ref.where('email', '==', email).get()
-      .then(function (querySnapshot) {
+  public getUsersData() {
+    // tslint:disable-next-line:prefer-const
+    let currentUser: any = [];
+      this.usersRef.ref.get().then(function (querySnapshot) {
         querySnapshot.forEach(function (doc) {
-          currentUser = doc.data();
-          console.log(currentUser);
-          return currentUser;
+            currentUser.push(doc.data());
         });
-      })
-      .catch(function (error) {
-        console.log('Error getting documents: ', error);
-      });
+    });
+    return currentUser;
   }
 }
