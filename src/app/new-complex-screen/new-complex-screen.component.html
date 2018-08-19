@@ -2,48 +2,30 @@
 <br>
 <div class="box center-align">
     <form [formGroup]="complexForm" (ngSubmit)="onSubmit()">
+
         <mat-form-field>
             <input matInput class="browser-default" type="text" placeholder="Nombre del Complejo" formControlName="complexName">
             <mat-icon matSuffix svgIcon="home-account" class="icon"></mat-icon>
         </mat-form-field>
 
-        <mat-form-field>
-            <input matInput class="browser-default" type="number" placeholder="Numero de Cancha" formControlName="fieldNum">
-            <mat-icon matSuffix svgIcon="soccer-field" class="icon"></mat-icon>
-        </mat-form-field>
+        <mat-grid-list class="grid" cols="2" rowHeight="3:1">
+            <mat-grid-tile>
+                <mat-form-field style="width: 90%">
+                    <input matInput class="browser-default" type="number" placeholder="Numero de Cancha" formControlName="fieldNum">
+                    <mat-icon matSuffix svgIcon="soccer-field" class="icon"></mat-icon>
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field style="width: 90%">
+                    <ngx-mat-file-input class="browser-default form-control" formControlName="imageURL" placeholder="Escoja una Imagen"></ngx-mat-file-input>
+                    <mat-icon matSuffix svgIcon="image" class="icon"></mat-icon>
+                </mat-form-field>
+            </mat-grid-tile>
+        </mat-grid-list>
 
         <mat-form-field>
             <textarea matInput class="browser-default" type="text" placeholder="Descripcion" formControlName="description"></textarea>
             <mat-icon matSuffix svgIcon="note-text" class="icon"></mat-icon>
-        </mat-form-field>
-
-        <mat-form-field>
-            <ngx-mat-file-input class="browser-default form-control" formControlName="imageURL" placeholder="Escoja una Imagen"></ngx-mat-file-input>
-            <mat-icon matSuffix svgIcon="image" class="icon"></mat-icon>
-        </mat-form-field>
-        <!-- <mat-form-field>
-            <input matInput class="browser-default" type="text" placeholder="Responsable" formControlName="ownerName">
-        </mat-form-field> -->
-        <!-- <table class="center-align" cellspacing="0">
-            <tr>
-                <td>
-                    <div class="browser-default inline">
-                        <input placeholder="Hora de Apertura" formControlName="openingHour" [owlDateTime]="dt1">
-                        <mat-icon svgIcon="calendar" class="icon" [owlDateTimeTrigger]="dt1"></mat-icon>
-                        <owl-date-time [pickerType]="'timer'" #dt1></owl-date-time>
-                    </div>
-                </td>
-                <td>
-                    <input class="browser-default" placeholder="Hora de Cierre" formControlName="closingHour" [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2">
-                    <mat-icon svgIcon="calendar" class="icon" [owlDateTimeTrigger]="dt2"></mat-icon>
-                    <owl-date-time [pickerType]="'timer'" #dt2></owl-date-time>
-                </td>
-            </tr>
-        </table> -->
-
-        <mat-form-field>
-            <input matInput class="browser-default" type="tel" placeholder="Telefono" formControlName="telephone">
-            <mat-icon matSuffix svgIcon="phone-in-talk" class="icon"></mat-icon>
         </mat-form-field>
 
         <mat-form-field>
@@ -60,7 +42,6 @@
             <mat-icon matSuffix svgIcon="flag" class="icon"></mat-icon>
         </mat-form-field>
 
-
         <ng-container *ngFor="let country of countries">
             <ng-container *ngIf="country.name == selectedCountry">
                 <mat-form-field>
@@ -71,10 +52,20 @@
                     </mat-select>
                     <mat-icon matSuffix svgIcon="city" class="icon"></mat-icon>
                 </mat-form-field>
+                <mat-form-field>
+                        <input matInput class="browser-default" type="tel" placeholder="Telefono" formControlName="telephone">
+                        <span matPrefix>{{country.preffix}} &nbsp;</span>
+                        <mat-icon matSuffix svgIcon="phone-in-talk" class="icon"></mat-icon>
+                    </mat-form-field>
             </ng-container>
         </ng-container>
-       
 
+        <mat-grid-list class="grid" cols="2" rowHeight="3:1">
+            <mat-grid-tile class="left-align" *ngFor="let feature of features">
+                <mat-checkbox formControlName="{{feature.var}}">
+                    <mat-icon svgIcon="{{feature.icon}}" class="icon"></mat-icon> {{feature.name}}</mat-checkbox>
+            </mat-grid-tile>
+        </mat-grid-list>
 
         <div class="center-align">
             <br>

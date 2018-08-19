@@ -17,6 +17,14 @@ export class NewComplexScreenComponent implements OnInit {
   loggedUser;
   countries: Array<Object> = countries;
   selectedCountry: String;
+  features = [
+    {name: 'Wifi Gratis', icon: 'wifi', var: 'wifi'},
+    {name: 'Duchas Disponibles', icon: 'shower-head', var: 'showers'},
+    {name: 'Parqueo Gratis', icon: 'car-side', var: 'parking'},
+    {name: 'Cafeteria', icon: 'food', var: 'food'},
+    {name: 'Bebidas Alcholicas', icon: 'beer', var: 'beer'},
+    {name: 'Prohibido Fumar', icon: 'smoking-off', var: 'smoking'},
+  ];
 
   constructor(private formBuilder: FormBuilder, private databaseService: DatabaseService, private authService: AuthenticationService) {
     this.createComplexForm();
@@ -49,6 +57,12 @@ export class NewComplexScreenComponent implements OnInit {
       imageURL: '',
       createdAt: Date.now().toString(),
       imageName: '',
+      wifi: false,
+      showers: false,
+      parking: false,
+      food: false,
+      beer: false,
+      smoking: false,
     });
   }
   onSubmit() {
